@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>艾可拉珠時間表產生器</title>
+	<link href="main.css" rel="stylesheet" type="text/css">
+	<script src="main.js" type="text/javascript"></script>
+</head>
+<body onload="init()">
+	<div id="panel">
+		<div class="row">艾可時間 <input id="st" type="text"></div>
+		<div class="row">開機時間 <input id="ft" type="text"></div>
+		<div class="row">下次維修 <input id="tt" type="text"></div>
+		<div class="row al-r"><button onclick="run()">產生</button></div>
+	</div><hr>
+	<div>
+		<div id="tab"><span class="selected-tab" onclick="show(0)">表格</span><span onclick="show(1)">圖片</span><span onclick="show(2)">編碼</span></div>
+		<a href="EclageBuff_calc.7z" style="font-size:12px;">本軟體離線版下載</a>
+	</div>
+	<div id="display">
+		<div id="preview"></div>
+		<div id="imgview" style="display:none"></div>
+		<div id="baha" style="display:none"></div>
+	</div>
+</body>
+</html>

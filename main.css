@@ -1,0 +1,48 @@
+#panel{
+	display:inline-block;
+}
+.al-r{
+	text-align:right;
+}
+.row{
+	margin:5px;
+	display:inline-block;
+}
+table{
+	border-collapse: collapse;
+	margin:2px;
+}
+table,tr,td,th{
+	border: 1px solid black;
+}
+td,th{
+	text-align:center;
+	font-size:16px;
+	padding:3px 5px;
+	font-family:"Arial","PMingLiU";
+	height:20px;
+}
+th{
+	height:22px;
+	padding:2px 5px;
+}
+td{
+	width:42px;
+}
+#tab{
+	display:inline-block;
+}
+#tab span{
+	background-color:white;
+	border:0.5px solid skyblue;
+	margin:2px;
+	padding:1px 2px;
+	cursor:default;
+	font-family:"Microsoft JhengHei";
+	font-size:14px;
+	display:inline-block;
+}
+#tab span.selected-tab {
+	background-color:lightblue;
+	display:inline-block;
+}
