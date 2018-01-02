@@ -157,10 +157,11 @@ function refreshData(set_t,from_t,to_t)
 	function drawImg(TB,start_day)
 	{
 		var div=document.getElementById("imgview");
-		var canvas,ctx;
+		var a_tag,canvas,ctx;
 		var w,h;
 		div.innerHTML="";
-		div.appendChild(canvas=document.createElement("canvas"));
+		div.appendChild(a_tag=document.createElement("a"));
+		a_tag.appendChild(canvas=document.createElement("canvas"));
 		canvas.width=w=1+53*TB[0].length*2;
 		canvas.height=h=1+27*TB.length;
 		ctx=canvas.getContext('2d');
@@ -195,8 +196,24 @@ function refreshData(set_t,from_t,to_t)
 		for(i=2;i<TB.length;++i)
 			for(j=0;j<TB[i].length;++j)
 				ctx.fillText(TB[i][j],j*53+27,i*27+14);
-		div.appendChild(canvas=document.createElement("p"));
-		canvas.appendChild(document.createTextNode("可以右鍵>另存圖片"));
+		var p;
+		div.appendChild(p=document.createElement("p"));
+		p.appendChild(document.createTextNode("可點擊圖片下載"))
+		canvas.toBlob(function (blob)
+		{
+			var url=(window.webkitURL||window.URL).createObjectURL(blob);
+			a_tag.href=url;
+			d.setTime(Date.now());
+			a_tag.download=["艾可拉珠時間表",
+							d.getFullYear(),
+							("0"+(d.getMonth()+1)).substr(-2),
+							("0"+d.getDate()).substr(-2),
+							("0"+d.getHours()).substr(-2),
+							("0"+d.getMinutes()).substr(-2),
+							".png"].join("");
+		});
+		//a_tag.appendChild(document.createTextNode("另存圖片"));
+		
 	}
 	
 }
